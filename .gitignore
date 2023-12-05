@@ -1,0 +1,3 @@
+.venv
+**/puzzle_input.txt
+.DS_STORE
