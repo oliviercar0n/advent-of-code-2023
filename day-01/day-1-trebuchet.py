@@ -1,4 +1,3 @@
-
 def p1(input_data: str):
     sum_calibration_values = 0
     for value in input_data:

@@ -17,15 +17,13 @@ def p1(input_data: str):
             for turn in _set.split(","):
                 data = re.match(color_pattern, turn.strip())
                 color = data.group(2)
-                if color == "red":
-                    if int(data.group(1)) > CONFIGURATION[0]:
-                        game_possible = False
-                elif color == "green":
-                    if int(data.group(1)) > CONFIGURATION[1]:
-                        game_possible = False
-                elif color == "blue":
-                    if int(data.group(1)) > CONFIGURATION[2]:
-                        game_possible = False
+                count = int(data.group(1))
+                if color == "red" and count > CONFIGURATION[0]:
+                    game_possible = False
+                elif color == "green" and count > CONFIGURATION[1]:
+                    game_possible = False
+                elif color == "blue" and count> CONFIGURATION[2]:
+                    game_possible = False
         
         if game_possible:
             sum_possible_game_ids += game_id
