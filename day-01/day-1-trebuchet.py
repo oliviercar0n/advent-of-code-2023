@@ -2,11 +2,7 @@
 def p1(input_data: str):
     sum_calibration_values = 0
     for value in input_data:
-        digits = []
-        for character in value:
-            if character.isdigit():
-                digits.append(character)
-
+        digits = [c for c in value if c.isdigit()]
         calibration_value = int(digits[0] + digits[-1])
         sum_calibration_values += calibration_value
 
