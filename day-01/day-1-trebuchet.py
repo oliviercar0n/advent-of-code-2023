@@ -1,17 +1,51 @@
+
+def p1(input_data: str):
+    sum_calibration_values = 0
+    for value in input_data:
+        digits = []
+        for character in value:
+            if character.isdigit():
+                digits.append(character)
+
+        calibration_value = int(digits[0] + digits[-1])
+        sum_calibration_values += calibration_value
+
+    print(f"The sum of all configuration values is {sum_calibration_values}")
+
+def p2(input_data: str):
+
+    numbers = [
+        "zero",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+    ]
+
+    sum_calibration_values = 0
+    for value in input_data:
+        digits = []
+        for i, character in enumerate(value):
+            if character.isdigit():
+                digits.append(character)
+            for d, number in enumerate(numbers):
+                if value[i:].startswith(number):
+                    digits.append(str(d))
+
+        calibration_value = int(digits[0] + digits[-1])
+        sum_calibration_values += calibration_value
+
+    print(f"The sum of all configuration values is {sum_calibration_values}")
+
+
 with open("puzzle_input.txt", "r") as f:
     calibration_data_input = f.readlines()
 
-sum_calibration_values = 0
-for value in calibration_data_input:
-    first_digit = None
-    last_digit = None
-    for character in value:
-        if character.isdigit():
-            if last_digit is None:
-                first_digit = character
-            last_digit = character
 
-    calibration_value = int(first_digit + last_digit)
-    sum_calibration_values += calibration_value
-
-print(f"The sum of all configuration values is {sum_calibration_values}")
+p1(calibration_data_input)
+p2(calibration_data_input)
