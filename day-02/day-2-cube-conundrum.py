@@ -1,21 +1,21 @@
 import re
 
 
+SET_DATA_PATTERN = "(Game )(\d*): (.*)"
+TURN_DATA_PATTERN = "(\d*) (\w*)"
+
 def p1(input_data: str):
     CONFIGURATION = (12, 13, 14)
-    set_data_pattern = "(Game )(\d*): (.*)"
-    color_pattern = "(\d*) (\w*)"
-
     sum_possible_game_ids = 0
     for game in input_data:
         game_possible = True
-        parsed_game_data = re.match(set_data_pattern, game)
+        parsed_game_data = re.match(SET_DATA_PATTERN, game)
         game_id = int(parsed_game_data.group(2))
         set_data = parsed_game_data.group(3)
         set_list = set_data.split(";")
         for _set in set_list:
             for turn in _set.split(","):
-                data = re.match(color_pattern, turn.strip())
+                data = re.match(TURN_DATA_PATTERN, turn.strip())
                 color = data.group(2)
                 count = int(data.group(1))
                 if color == "red" and count > CONFIGURATION[0]:
@@ -31,20 +31,17 @@ def p1(input_data: str):
     print(f"The sum of all possible game IDs is {sum_possible_game_ids}")
 
 def p2(input_data: str):
-    set_data_pattern = "(Game )(\d*): (.*)"
-    color_pattern = "(\d*) (\w*)"
-
     sum_powers = 0
     for game in input_data:
         red_values = []
         green_values = []
         blue_values = []
-        parsed_game_data = re.match(set_data_pattern, game)
+        parsed_game_data = re.match(SET_DATA_PATTERN, game)
         set_data = parsed_game_data.group(3)
         set_list = set_data.split(";")
         for _set in set_list:
             for turn in _set.split(","):
-                data = re.match(color_pattern, turn.strip())
+                data = re.match(TURN_DATA_PATTERN, turn.strip())
                 color = data.group(2)
                 count = int(data.group(1))
                 if color == "red":
