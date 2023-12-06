@@ -37,7 +37,7 @@ def p2(input_data: str):
     print(f"The sum of all configuration values is {sum_calibration_values}")
 
 
-with open("puzzle_input.txt", "r") as f:
+with open("puzzle-input.txt", "r") as f:
     calibration_data_input = f.readlines()
 
 p1(calibration_data_input)

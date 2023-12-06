@@ -55,7 +55,7 @@ def p2(input_data: str):
 
     print(f"The sum of the powers is {sum_powers}")
 
-with open("puzzle_input.txt", "r") as f:
+with open("puzzle-input.txt", "r") as f:
     game_results = f.readlines()
 
 p1(game_results)
