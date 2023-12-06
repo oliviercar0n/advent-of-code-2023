@@ -5,6 +5,7 @@ with open("day-05-puzzle-input.txt", "r") as f:
     input_data = f.readlines()
     
 # Part 1
+
 seeds_list = [int(seed_number) for seed_number in re.match("seeds: (.*)", input_data[0]).group(1).split(" ")]
 
 master_map = {}

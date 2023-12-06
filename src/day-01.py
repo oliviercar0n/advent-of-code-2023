@@ -31,8 +31,7 @@ def p2(input_data: str):
                 if value[i:].startswith(number):
                     digits.append(str(d))
 
-        calibration_value = int(digits[0] + digits[-1])
-        sum_calibration_values += calibration_value
+        sum_calibration_values += int(digits[0] + digits[-1])
 
     print(f"The sum of all configuration values is {sum_calibration_values}")
 

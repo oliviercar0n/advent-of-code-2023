@@ -4,8 +4,9 @@ import re
 SET_DATA_PATTERN = "(Game )(\d*): (.*)"
 TURN_DATA_PATTERN = "(\d*) (\w*)"
 
+CONFIGURATION = {"red": 12, "green": 13, "blue": 14}
+
 def p1(input_data: str):
-    CONFIGURATION = (12, 13, 14)
     sum_possible_game_ids = 0
     for game in input_data:
         game_possible = True
@@ -18,11 +19,7 @@ def p1(input_data: str):
                 data = re.match(TURN_DATA_PATTERN, turn.strip())
                 color = data.group(2)
                 count = int(data.group(1))
-                if color == "red" and count > CONFIGURATION[0]:
-                    game_possible = False
-                elif color == "green" and count > CONFIGURATION[1]:
-                    game_possible = False
-                elif color == "blue" and count> CONFIGURATION[2]:
+                if color in CONFIGURATION.keys() and count > CONFIGURATION[color]:
                     game_possible = False
         
         if game_possible:
