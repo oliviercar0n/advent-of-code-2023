@@ -8,52 +8,41 @@ hands = [tuple(x.split()) for x in input_data.split("\n")]
 
 five = []
 four = []
+full_house = []
 three = []
 two_pairs = []
 pairs = []
 single = []
-full_house = []
 
 for hand in hands:
     hs = hand[0]
-    
     best_kind = 999
     for cc in cards[1:]:
-        combos = []
-        highest = ("", 0)
+        c_pairs = []
+        c_trips = []
+        highest = 0
         hs_replaced = hs.replace("J", cc)
         for card in set(hs_replaced):
             occ = hs_replaced.count(card)
-            combos.append((card, occ))
-            if occ > highest[1]:
-                highest = (card, occ)
-
-        is_full_house = False
-        is_two_pair = False
-        c_pairs = []
-        c_trips = []
-
-        for combo in combos:
-            if combo[1] == 2:
+            combo = (card, occ)
+            if occ == 2:
                 c_pairs.append(combo)
-            elif combo[1] == 3:
+            elif occ == 3:
                 c_trips.append(combo)
-        if len(c_pairs) == 1 and len(c_trips) == 1:
-            is_full_house = True
-        elif len(c_pairs) == 2:
-            is_two_pair = True
+            if occ > highest:
+                highest = occ
 
-        if highest[1] == 5:
+        if highest == 5:
             hand_rank = 1
-        elif highest[1] == 4:
+        elif highest == 4:
             hand_rank = 2
-        elif is_full_house:
+        elif len(c_pairs) == 1 and len(c_trips) == 1:  # Full House
             hand_rank = 3
-        elif highest[1] == 3:
+        elif highest == 3:
             hand_rank = 4
-        elif is_two_pair:
+        elif len(c_pairs) == 2:  # Two Pairs
             hand_rank = 5
-        elif highest[1] == 2:
+        elif highest == 2:
             hand_rank = 6
         else:
             hand_rank = 7
@@ -81,10 +70,6 @@ for hand in hands:
 def f(hand):
     return [cards.index(c) for c in hand[0]]
 
-
-# full_house = [(hand[0], hand[1], f(hand)[0], f(hand)[1], f(hand)[2], f(hand)[3], f(hand)[4]) for hand in full_house]
-# full_house.sort(key=lambda k: (k[2],k[3],k[4],k[5],k[6]), reverse=True)
-
 final_rank = []
 for kind in [single, pairs, two_pairs, three, full_house, four, five]:
     expanded = [
@@ -96,7 +81,6 @@ for kind in [single, pairs, two_pairs, three, full_house, four, five]:
 
 winnings = 0
 for i, hand in enumerate(final_rank):
-    # print(hand)
     winnings += (i + 1) * int(hand[1])
 
 print(winnings)
