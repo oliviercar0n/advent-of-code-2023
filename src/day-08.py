@@ -20,7 +20,6 @@ for node in nodes:
 # Part 1
 
 i = 0
-n =0
 c_node = 'AAA'
 while c_node != 'ZZZ':
     for d in directions:
