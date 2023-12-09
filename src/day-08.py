@@ -39,7 +39,6 @@ print(i)
 
 s = [node for node in m.keys() if node.endswith('A')]
 
-it = {}
 mm = []
 for c_node in s:
     i = 0
