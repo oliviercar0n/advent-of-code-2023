@@ -42,10 +42,8 @@ s = [node for node in m.keys() if node.endswith('A')]
 it = {}
 mm = []
 for c_node in s:
-    z = False
     i = 0
     while not c_node.endswith('Z'):
-        cz = 0
         for d in directions:
             i+=1
             if d == 'L':
@@ -55,5 +53,6 @@ for c_node in s:
 
             if c_node.endswith('Z'):
                 mm.append(i)
+                break
 
 print(lcm(*mm))
