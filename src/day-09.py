@@ -11,16 +11,14 @@ histories = [[int(x) for x in l.split(" ")] for l in lines]
 
 acc = 0
 for history in histories:
-    cs = []
     ss = history
     seqs = []
     while True:
-        cs = np.diff(ss)
-        if all(i == 0 for i in cs):
+        ss = np.diff(ss)
+        if all(i == 0 for i in ss):
             break
         else:
-            seqs.append(cs)
-        ss = cs
+            seqs.append(ss)
     
     inc = 0
     for seq in reversed(seqs):
@@ -34,16 +32,14 @@ print(acc)
 
 acc = 0
 for history in histories:
-    cs = []
     ss = history
     seqs = []
     while True:
-        cs = np.diff(ss)
-        if all(i == 0 for i in cs):
+        ss = np.diff(ss)
+        if all(i == 0 for i in ss):
             break
         else:
-            seqs.append(cs)
-        ss = cs
+            seqs.append(ss)
 
     inc = 0
     for seq in reversed(seqs):
