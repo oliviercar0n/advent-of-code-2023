@@ -14,6 +14,7 @@ two_pairs = []
 pairs = []
 single = []
 
+# Part 2 
 for hand in hands:
     hs = hand[0]
     best_kind = 999

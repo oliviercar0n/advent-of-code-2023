@@ -42,7 +42,3 @@ for seed in seeds_list:
     locations.append(location)
 
 print(f"The lowest location is {min(locations)}")
-
-# Part 2
-
-# Nope.

@@ -8,7 +8,7 @@ for value in calibration_data_input:
     digits = [c for c in value if c.isdigit()]
     sum_calibration_values += int(digits[0] + digits[-1])
 
-print(f"The sum of all configuration values is {sum_calibration_values}")
+print(sum_calibration_values)
 
 # Part 2
 
@@ -37,4 +37,4 @@ for value in calibration_data_input:
 
     sum_calibration_values += int(digits[0] + digits[-1])
 
-print(f"The sum of all configuration values is {sum_calibration_values}")
+print(sum_calibration_values)

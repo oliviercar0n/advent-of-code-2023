@@ -7,6 +7,8 @@ SYMBOLS = "*/-@$=%+#&"
 with open("day-03-puzzle-input.txt", "r") as f:
     m = np.array([list(row) for row in f.read().split("\n")])
 
+# Part 1
+
 sum_numbers = 0
 gears = set()
 gear_parts = defaultdict(list)
@@ -42,12 +44,14 @@ for j in range(0, m.shape[0]):
                 i1 = None
                 gears = set()
 
-print(f"The sum of the part numbers is {sum_numbers}")
+print(sum_numbers)
+
+# Part 2 
 
 sum_ratios = 0
 for k,v in gear_parts.items():
     if len(v) == 2:
         sum_ratios += v[0] * v[1]
 
-print(f"The sum of gear ratios is {sum_ratios}")
+print(sum_ratios)
 
