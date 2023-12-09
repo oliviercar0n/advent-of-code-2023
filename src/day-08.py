@@ -14,7 +14,7 @@ nodes = data[2:]
 for node in nodes:
     n, steps = node.split('=')
     p = steps.split(',')
-    s = (p[0].strip()[1:],p[1].strip()[:-1])
+    s = {'L': p[0].strip()[1:], 'R': p[1].strip()[:-1]}
     m[n.strip()] = s
 
 # Part 1
@@ -24,10 +24,7 @@ c_node = 'AAA'
 while c_node != 'ZZZ':
     for d in directions:
         i+=1
-        if d == 'L':
-            c_node = m[c_node][0]
-        elif d == 'R':
-            c_node = m[c_node][1] 
+        c_node = m[c_node][d]
 
         if c_node == 'ZZZ':
             break       
@@ -44,11 +41,7 @@ for c_node in s:
     while not c_node.endswith('Z'):
         for d in directions:
             i+=1
-            if d == 'L':
-                c_node = m[c_node][0]
-            elif d == 'R':
-                c_node = m[c_node][1] 
-
+            c_node = m[c_node][d] 
             if c_node.endswith('Z'):
                 mm.append(i)
                 break
