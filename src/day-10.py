@@ -1,5 +1,4 @@
 import numpy as np
-from shapely.geometry import Point, Polygon
 
 
 with open("day-10-puzzle-input.txt", "r") as f:
