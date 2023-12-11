@@ -1,4 +1,3 @@
 .venv
-*puzzle-input.txt
+*.txt
 .DS_STORE
-*alt.py
