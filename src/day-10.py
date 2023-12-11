@@ -1,7 +1,7 @@
 import numpy as np
 
 
-with open("day-10-puzzle-input.txt", "r") as f:
+with open("day-10.txt", "r") as f:
     input_data = f.read().strip()
 
 m = np.array([list(row) for row in input_data.split("\n")])
@@ -43,9 +43,9 @@ while True:
     i += 1
     cp = np.add(cd, cp)
     pipe = m[cp[0], cp[1]]
-    nm[cp[0], cp[1]] = 'X'
+    nm[cp[0], cp[1]] = "X"
 
-    if pipe in ['F', '7', '|']:
+    if pipe in ["F", "7", "|"]:
         nm[cp[0], cp[1]] = "x"
     if pipe == "S":
         break
@@ -56,7 +56,7 @@ acc = 0
 for j in range(0, nm.shape[0] - 1):
     for i in range(0, nm.shape[1] - 1):
         it = 0
-        if nm[j][i] not in ['X', 'x']:
+        if nm[j][i] not in ["X", "x"]:
             for x in range(i, nm.shape[1]):
                 if nm[j][x] == "x":
                     it += 1

@@ -1,4 +1,4 @@
-with open("day-01-puzzle-input.txt", "r") as f:
+with open("day-01.txt", "r") as f:
     calibration_data_input = f.readlines()
 
 # Part 1

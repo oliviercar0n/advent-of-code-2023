@@ -1,6 +1,6 @@
 import numpy as np
 
-with open("day-09-puzzle-input.txt", "r") as f:
+with open("day-09.txt", "r") as f:
     input_data = f.read().strip()
 
 
@@ -19,11 +19,11 @@ for history in histories:
             break
         else:
             seqs.append(ss)
-    
+
     inc = 0
     for seq in reversed(seqs):
         inc = seq[-1] + inc
-    
+
     acc += history[-1] + inc
 
 print(acc)
@@ -44,7 +44,7 @@ for history in histories:
     inc = 0
     for seq in reversed(seqs):
         inc = seq[0] - inc
-    
+
     acc += history[0] - inc
-    
+
 print(acc)

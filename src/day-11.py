@@ -1,7 +1,7 @@
 import numpy as np
 from itertools import combinations
 
-with open("day-11-puzzle-input.txt", "r") as f:
+with open("day-11.txt", "r") as f:
     input_data = f.read().strip()
 
 a = np.array([list(row) for row in input_data.split("\n")])
@@ -15,14 +15,14 @@ for i, row in enumerate(m):
         er.append(i)
 
 for i, r in enumerate(er):
-    m = np.insert(m, r+i+1, ".", axis=0)
+    m = np.insert(m, r + i + 1, ".", axis=0)
 
 ec = []
 for i, col in enumerate(m.T):
     if "#" not in col:
         ec.append(i)
 for i, c in enumerate(ec):
-    m = np.insert(m, c+i+1, ".", axis=1)
+    m = np.insert(m, c + i + 1, ".", axis=1)
 
 G = list(zip(*np.where(m == "#")))
 pairs = list(combinations(G, 2))
@@ -44,10 +44,10 @@ for i, row in enumerate(a):
     if "#" not in row:
         NG = []
         for g in G:
-            if g[0] > i+(cnt*inc):
-                ng = (g[0]+inc, g[1])
+            if g[0] > i + (cnt * inc):
+                ng = (g[0] + inc, g[1])
             else:
-                ng = g 
+                ng = g
             NG.append(ng)
         G = NG
         cnt += 1
@@ -57,10 +57,10 @@ for i, col in enumerate(a.T):
     if "#" not in col:
         NG = []
         for g in G:
-            if g[1] > i+(cnt*inc):
-                ng = (g[0],g[1]+inc)
+            if g[1] > i + (cnt * inc):
+                ng = (g[0], g[1] + inc)
             else:
-                ng = g 
+                ng = g
             NG.append(ng)
         G = NG
         cnt += 1

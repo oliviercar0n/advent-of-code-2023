@@ -6,7 +6,7 @@ TURN_DATA_PATTERN = "(\d*) (\w*)"
 
 CONFIGURATION = {"red": 12, "green": 13, "blue": 14}
 
-with open("day-02-puzzle-input.txt", "r") as f:
+with open("day-02.txt", "r") as f:
     game_results = f.readlines()
 
 # Part 1
@@ -25,7 +25,7 @@ for game in game_results:
             count = int(data.group(1))
             if color in CONFIGURATION.keys() and count > CONFIGURATION[color]:
                 game_possible = False
-    
+
     if game_possible:
         sum_possible_game_ids += game_id
 

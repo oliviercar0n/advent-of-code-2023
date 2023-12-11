@@ -4,7 +4,7 @@ from collections import defaultdict
 
 SYMBOLS = "*/-@$=%+#&"
 
-with open("day-03-puzzle-input.txt", "r") as f:
+with open("day-03.txt", "r") as f:
     m = np.array([list(row) for row in f.read().split("\n")])
 
 # Part 1
@@ -39,19 +39,18 @@ for j in range(0, m.shape[0]):
 
                 for gear in gears:
                     gear_parts[gear].append(number)
-                    
+
                 i2 = None
                 i1 = None
                 gears = set()
 
 print(sum_numbers)
 
-# Part 2 
+# Part 2
 
 sum_ratios = 0
-for k,v in gear_parts.items():
+for k, v in gear_parts.items():
     if len(v) == 2:
         sum_ratios += v[0] * v[1]
 
 print(sum_ratios)
-

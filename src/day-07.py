@@ -1,4 +1,4 @@
-with open("day-07-puzzle-input.txt", "r") as f:
+with open("day-07.txt", "r") as f:
     input_data = f.read().strip()
 
 cards = ["J", "2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A"]
@@ -14,7 +14,7 @@ two_pairs = []
 pairs = []
 single = []
 
-# Part 2 
+# Part 2
 for hand in hands:
     hs = hand[0]
     best_kind = 999
@@ -51,7 +51,6 @@ for hand in hands:
         if hand_rank < best_kind:
             best_kind = hand_rank
 
-        
     if best_kind == 1:
         five.append(hand)
     elif best_kind == 2:
@@ -70,6 +69,7 @@ for hand in hands:
 
 def f(hand):
     return [cards.index(c) for c in hand[0]]
+
 
 final_rank = []
 for kind in [single, pairs, two_pairs, three, full_house, four, five]:
