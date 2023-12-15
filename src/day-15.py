@@ -15,12 +15,9 @@ def hash_fn(step):
 
     return v
 
+# Part 1
 
-acc = 0
-for step in input_data.split(","):
-    acc += hash_fn(step)
-
-print(acc)
+print(sum(hash_fn(step) for step in input_data.split(",")))
 
 # Part 2
 
