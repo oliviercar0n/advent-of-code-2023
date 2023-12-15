@@ -22,7 +22,6 @@ print(sum(hash_fn(step) for step in input_data.split(",")))
 # Part 2
 
 B = defaultdict(dict)
-i = 0
 for step in input_data.split(","):
     if "=" in step:
         label, fl = step.split("=")
