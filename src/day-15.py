@@ -1,4 +1,3 @@
-import numpy as np
 from collections import defaultdict
 
 with open("day-15.txt", "r") as f:
