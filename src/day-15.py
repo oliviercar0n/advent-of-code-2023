@@ -35,7 +35,7 @@ for step in input_data.split(","):
 
 acc = 0
 for box_num, lenses in B.items():
-    for idx, label in enumerate(lenses.keys()):
-        acc += (1 + box_num) * (idx + 1) * B[box_num][label]
+    for idx, (label, fl) in enumerate(lenses.items()):
+        acc += (1 + box_num) * (idx + 1) * fl
 
 print(acc)
