@@ -24,6 +24,7 @@ def compute_arrangement(springs):
     config = [len(x) for x in G]
     return config
 
+
 @cache
 def count_possibilities(springs, arr):
     arr = [int(x) for x in arr.split(",")]
@@ -36,11 +37,12 @@ def count_possibilities(springs, arr):
             if s == "?":
                 nsp[j] = p[i]
                 i += 1
-        config = compute_arrangement(''.join(nsp))
+        config = compute_arrangement("".join(nsp))
         if config == arr:
             acc += 1
-    
+
     return acc
+
 
 # Part 1 (Super naive)
 

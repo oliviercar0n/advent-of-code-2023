@@ -6,13 +6,15 @@ with open("day-14.txt", "r") as f:
 
 m = np.array([list(row) for row in input_data.split("\n")])
 
+
 def calculate_load(a):
     acc = 0
     for idx, t in np.ndenumerate(a):
-        if t== "O":
+        if t == "O":
             acc += len(a) - idx[0]
-    
+
     return acc
+
 
 def tilt(a):
     for idx, t in np.ndenumerate(a):
@@ -21,13 +23,14 @@ def tilt(a):
             c = idx[1]
             furthest = False
             while furthest == False:
-                if a[max(r-1,0)][c] != "." or r == 0:
-                    furthest=True
+                if a[max(r - 1, 0)][c] != "." or r == 0:
+                    furthest = True
                     a[idx[0]][c] = "."
                     a[r][c] = "O"
                 else:
                     r -= 1
     return a
+
 
 # Part 1
 
@@ -38,12 +41,14 @@ print(calculate_load(m1))
 
 # Part 2
 
+
 def apply_cycle(a):
     for _ in range(4):
         a = tilt(a)
-        a = np.rot90(a, k=1, axes=(1,0)) # Clockwise rotation
-    
+        a = np.rot90(a, k=1, axes=(1, 0))  # Clockwise rotation
+
     return a
+
 
 cycles = 1_000_000_000
 viewed = []
@@ -52,7 +57,7 @@ m2 = m.copy()
 while True:
     i += 1
     m2 = apply_cycle(m2)
-    hashed = sha1(''.join(x for _, x in np.ndenumerate(m2)).encode()).hexdigest()
+    hashed = sha1("".join(x for _, x in np.ndenumerate(m2)).encode()).hexdigest()
     if hashed not in viewed:
         viewed.append(hashed)
     else:

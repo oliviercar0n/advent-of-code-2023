@@ -16,10 +16,10 @@ pd = {
 }
 
 allowed = {
-    (-1,0): ["|", "7", "F"],  # UP 
-    (1,0): ["|", "L", "J"],   # DOWN 
-    (0,1): ["-", "7", "J"],   # RIGHT
-    (0,-1): ["-", "F", "L"],   # LEFT
+    (-1, 0): ["|", "7", "F"],  # UP
+    (1, 0): ["|", "L", "J"],  # DOWN
+    (0, 1): ["-", "7", "J"],  # RIGHT
+    (0, -1): ["-", "F", "L"],  # LEFT
 }
 
 # Part 1
@@ -28,7 +28,7 @@ sc = list(zip(*np.where(m == "S")))[0]
 
 
 # Find first pipe
-for d in [(-1,0), (1,0), (0,1), (0,1)]:
+for d in [(-1, 0), (1, 0), (0, 1), (0, 1)]:
     cp = np.add(sc, d)
     pipe = m[cp[0], cp[1]]
     if pipe in allowed[d]:
