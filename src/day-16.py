@@ -7,7 +7,7 @@ m = np.array([list(row) for row in input_data.split("\n")])
 
 
 def count_energized(initial_beam, a):
-    energized = [initial_beam[0]]
+    energized = []
     beam_states = [initial_beam]
     B = [initial_beam]
     while len(B) > 0:
@@ -33,7 +33,6 @@ def count_energized(initial_beam, a):
         B = NB
 
     return len(energized)
-
 
 # Part 1
 
