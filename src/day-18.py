@@ -5,22 +5,6 @@ with open("day-18.txt", "r") as f:
 
 
 def calculate_area(moves):
-
-    inc = {
-        # LEFT
-        ((-1, 0), (0, 1)): 0.75,
-        ((-1, 0), (0, -1)): 0.25,
-        # RIGHT
-        ((1, 0), (0, 1)): 0.25,
-        ((1, 0), (0, -1)): 0.75,
-        # UP
-        ((0, 1), (-1, 0)): 0.25,
-        ((0, 1), (1, 0)): 0.75,
-        # DOWN
-        ((0, -1), (-1, 0)): 0.75,
-        ((0, -1), (1, 0)): 0.25,
-    }
-
     x = 0
     y = 0
     coords = [(x, y)]
@@ -28,36 +12,22 @@ def calculate_area(moves):
     for d, l in moves:
         if d == "L":
             x -= l
-            d = (-1, 0)
         elif d == "R":
             x += l
-            d = (1, 0)
         elif d == "U":
             y += l
-            d = (0, 1)
         elif d == "D":
             y -= l
-            d = (0, -1)
         coords.append((x, y))
-        directions.append(d)
-
-    directions.append(directions[0])
-
-    acc = 0
-    for i in range(1, len(directions)):
-        d1 = directions[i - 1]
-        d2 = directions[i]
-        plus = inc[(d1, d2)]
-        acc += plus
 
     p = Polygon(coords)
-
-    a = p.area + acc + (p.length-len(coords)+1) * 0.5
+    a = p.area + p.length//2 + 1
 
     return int(a)
 
 
 # Part 1
+
 moves = []
 for line in input_data.split("\n"):
     d, l, _ = line.split(" ")
